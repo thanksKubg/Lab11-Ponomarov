@@ -9,7 +9,9 @@
         {
             // TODO: Завдання 1.
             // Ініціалізуйте властивості Power та FuelType переданими параметрами.
-
+            
+            Power = power;
+            FuelType = fuelType;
         }
     }
 }

@@ -9,6 +9,8 @@
         {
             // TODO: Завдання 3.
             // Ініціалізуйте властивості Name та Experience переданими параметрами.
+            Name = name;
+            Experience = experience;
 
         }
     }

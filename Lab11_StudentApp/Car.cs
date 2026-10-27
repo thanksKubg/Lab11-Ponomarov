@@ -23,11 +23,17 @@
             // 1. Збережіть назву моделі у властивість Model.
             // 2. Створіть для цього авто власний двигун і збережіть його у CarEngine.
             //    (Значення оберіть самі, вимоги до них: у тексті завдання.)
+            Model = model;
+            CarEngine = new Engine(150, "Бензин");
 
             // TODO: Завдання 4.
             // 1. Створіть масив Wheels на 4 елементи.
             // 2. Заповніть його: кожна комірка має містити власний, окремо створений об'єкт Wheel.
-
+            Wheels = new Wheel[4];
+            for (int i = 0; i < 4; i++)
+            {
+                Wheels[i] = new Wheel(16);
+            }
         }
 
         // TODO: Завдання 3.
@@ -36,7 +42,9 @@
         // а сам об'єкт водія нікуди не зникає.
         public Driver? RemoveDriver()
         {
-            return null;
+            Driver? d = CarDriver;
+            CarDriver = null;
+            return d;
         }
 
         // TODO: Завдання 5.
@@ -44,7 +52,26 @@
         // (умови дивіться в тексті завдання). Інакше поверніть false.
         public bool IsReadyToDrive()
         {
-            return false;
+            if (CarEngine == null)
+            {
+                return false;
+            }
+            if (Wheels == null)
+            {
+                return false;
+            }
+            if (Wheels.Length != 4)
+            {
+                return false;
+            }
+            for (int i = 0; i < Wheels.Length; i++)
+            {
+                if (Wheels[i] == null)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }
